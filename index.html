@@ -80,7 +80,7 @@
     text-align: center;
   }
 
-  /* 分類導覽 */
+  /* 桌面版分類標籤依可用寬度換行 */
   nav {
     position: sticky;
     top: 0;
@@ -94,8 +94,8 @@
 
   nav .wrap {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
-    overflow-x: auto;
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -115,7 +115,7 @@
 
   /* 活動分類與卡片 */
   main.wrap { padding-top: 28px; padding-bottom: 40px; }
-  section.cat { margin-bottom: 40px; scroll-margin-top: 72px; }
+  section.cat { margin-bottom: 40px; scroll-margin-top: 150px; }
 
   section.cat h2 {
     display: flex;
@@ -191,6 +191,16 @@
     color: var(--soft);
     font-size: 15px;
     white-space: pre-line;
+  }
+
+  /* 手機版分類標籤維持單列，可左右滑動 */
+  @media (max-width: 767px) {
+    nav .wrap {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    section.cat { scroll-margin-top: 72px; }
   }
 
   @media (max-width: 480px) {
